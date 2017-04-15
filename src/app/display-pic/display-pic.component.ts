@@ -10,22 +10,30 @@ export class DisplayPicComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.pics = JSON.parse(localStorage.getItem('pics'));
-    console.log(this.pics)
+    if(JSON.parse(localStorage.getItem('pics')) === null){
+      this.pics = []
+    }else{
+      this.pics = JSON.parse(localStorage.getItem('pics'));      
+    }
   }
 
-  deleteALLPics(){
-    localStorage.clear();
+  deleteALLPics(){ // delete all pics and reset pics Array and the size 
+    var dataSize = 0 
+    this.pics = []
+    localStorage.setItem("pics", JSON.stringify(this.pics));
+    localStorage.setItem("dataSize", JSON.stringify(dataSize));
+    alert("All Images has been deleted");    
   }
 
-  deletePic(i){
+  deletePic(i){ // reomve one pic 
     this.pics = JSON.parse(localStorage.getItem('pics'));
+    this.decSize(this.pics[i].size)
     this.pics.splice(i, 1);
     localStorage.setItem("pics", JSON.stringify(this.pics));
     alert("has been deleted")
   }
 
-  decSize(size){
+  decSize(size){ // reduce the size 
     var dataSize = JSON.parse(window.localStorage.getItem("dataSize")) - size;
     localStorage.setItem("dataSize", JSON.stringify(dataSize));
   }

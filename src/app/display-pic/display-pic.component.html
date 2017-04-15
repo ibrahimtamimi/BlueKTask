@@ -3,10 +3,12 @@
     <li *ngFor='let pic of pics; let i = index' >
         <div class="col">
           <img id="imgId" class="image" src="{{pic.src}}" height="200" width="200" />
-          <p >{{pic.name}} {{i}} </p>
-          <button (click)="deletePic(i)">Delete</button>
+          <p>Name : {{pic.name}} </p>
+          <p>Title : {{pic.title}}</p>
+          <p>description : {{pic.description}}</p>
+          <button (click)="deletePic(i)" class="rbutton">Delete</button>
         </div>
     </li>
   </ul>
-  <button (click)="deleteALLPics()"> Delete All Pics</button>
+  <button (click)="deleteALLPics()" class="rbutton"> Delete All Pics</button>
 </div>
