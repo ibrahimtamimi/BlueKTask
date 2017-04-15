@@ -22,4 +22,17 @@ describe('UplodePicComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have size var holde 4 Mb ', async(() => {
+    const fixture = TestBed.createComponent(UplodePicComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.size).toEqual(4 * 1024 * 1024);
+  }));
+
+   it('should incSize function return Boolean ', async(() => {
+    const fixture = TestBed.createComponent(UplodePicComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.incSize).toBeDefined
+  }));
+
 });

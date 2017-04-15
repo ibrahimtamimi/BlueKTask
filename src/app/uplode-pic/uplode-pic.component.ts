@@ -30,7 +30,7 @@ export class UplodePicComponent implements OnInit{
         var that = this;
         reader.onload = function(e) {
             if(that.isSizeFull(event.target.files[0]['size'])){
-                console.log("storge is full")
+               alert("storge is full")
             }else{
                 var src = e.target;  
                 image.src = src['result'];
@@ -45,6 +45,8 @@ export class UplodePicComponent implements OnInit{
         this.pics = JSON.parse(window.localStorage.getItem("pics"));
         this.pics.push(x)
         window.localStorage.setItem("pics", JSON.stringify(this.pics)); 
+        alert("image saved")
+        
     }
 
     setPicInofrmaition(name, title, description){
